@@ -67,6 +67,16 @@ Namespace Controllers
             Dim maxId = Departments.AsEnumerable().Select(Of Integer)(Function(d) d.DeptId).Max()
 
             department.DeptId = maxId + 1
+
+            ' session情報取得。
+            ' department.Comment = HttpContext.Current.Session("SESSION_TEST")
+            ' こうやってもダメ。普通にやると、ApiControllerは、HttpContext.Current.SessionはNothingになるみたい。
+            ' 理由:
+            ' Web API利用時にRouteに登録するHttpControllerRouteHandlerのGetHttpHandlerでは、IRequiresSessionStateインターフェース指定のないHttpControllerHandlerが使われるから
+            ' なので、Web APIではセッションを利用しないことが前提（標準）→REST Fullな設計になっているからと思われる。
+            ' 無理やりSession使えるようにする方法もあるみたいが、標準的な手法のHackが必要。あまり勧められないと考える。
+            ' WebAPIで使うRoteHandlerを、セッション利用可能なクラス（＝IRequiresSessionStateを指定したカスタムクラス）に置き換える
+
             ' 本来は排他必要。あくまでテスト
             Departments.Add(department)
 

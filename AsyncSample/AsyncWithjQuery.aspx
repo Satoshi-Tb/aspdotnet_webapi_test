@@ -65,7 +65,7 @@
 
                         // JSONデータの配列を処理
                         $(data).each(function () {
-                            $("<p>" + this.DeptId + ":" + this.Name + "</p>").appendTo("#result");
+                            $("<p>" + this.DeptId + ":" + this.Name + ", " + this.Comment + "</p>").appendTo("#result");
 
                         });
                     }
@@ -95,7 +95,7 @@
                     // 結果をid=resultのdivタグに設定
                     success: function (data) {
                         // resultデータには、Nameプロパティが存在する前提
-                        $("#result").text(data.DeptId + ":" + data.Name)
+                        $("#result").text(data.DeptId + ":" + data.Name + "," + data.Comment)
                     }
                 });
             });
