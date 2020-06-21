@@ -25,6 +25,7 @@
         ・例えば、ClientIDModeプロパティにStaticを指定すれば、必ずクライアントID＝サーバーIDとなる。<br />
         ・なお、ClientIDを直接参照すれば、ClientIDModeの設定によらず、常に望む値が参照可能<br />
           &nbsp;&nbsp;ただし参考書籍によるとあまり見た目が良くないので、お勧めしないとのこと<br />
+        ・WebAPIモジュールを使うと、比較的容易に構築できそう<br />
 
     </p>
     <form id="form1" runat="server">
