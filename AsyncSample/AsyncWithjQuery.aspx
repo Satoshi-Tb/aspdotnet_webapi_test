@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="ja">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>AsyncSample - jQuery</title>
@@ -28,23 +28,50 @@
         ・WebAPIモジュールを使うと、比較的容易に構築できそう<br />
 
     </p>
+
     <form id="form1" runat="server">
 
-        <input id="listButton" type="button" value="一覧検索：Webサービス呼び出し" /><br />
-        部署ID: <input type="text" id="departmentId" />
-        <input id="searchButton" type="button" value="ID検索：Webサービス呼び出し" /><br />
-        部署名: <input type="text" id="departmentName" />
-        <input id="createButton" type="button" value="部署登録：Webサービス呼び出し" />
+        <h2>ASP.NET WebAPIサンプル</h2>
+
+        <input id="listButton" type="button" value="一覧検索" />&nbsp;&nbsp;
+        部署ID: <input type="text" id="departmentId"  style="width:50px;"/>
+        <input id="searchButton" type="button" value="ID検索"/><br />
+        <table style="margin-top: 10px;">
+            <colgroup>
+                <col width="100"/>
+                <col width="200"/>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td>部署名</td>
+                    <td>
+                         <input type="text" id="departmentName" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>コメント</td>
+                    <td>
+                         <input type="text" id="comment" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: right;"><input id="createButton" type="button" value="部署登録" /></td>
+                </tr>
+
+
+            </tbody>
+
+        </table>
         <hr />
         <div id="result"></div>
 
     </form>
     <script type="text/javascript">
-<!--
         $(function () {
             console.log("jQuery OK!");
             // キーワード補完されないのがつらい。CDNだとダメかな？
 
+            // 一覧検索
             $("#listButton").click(function () {
 
                 var dptId = $("#departmentId").val();
@@ -72,7 +99,7 @@
                 });
             });
 
-
+            // ID指定検索処理
             $("#searchButton").click(function () {
 
                 var dptId = $("#departmentId").val();
@@ -100,17 +127,21 @@
                 });
             });
 
+            // 登録処理
             $("#createButton").click(function () {
 
                 // 部署名データ作成
-                var data = { "name": $("#departmentName").val() };
+                var data = {
+                    "name": $("#departmentName").val(),
+                    "comment": $("#comment").val()
+                };
                 var apiUrl = "/api/Departments/"
                 console.log("AJAX通信開始");
                 console.log("送信データ: " + data);
                 console.log("url: " + apiUrl);
 
-                if (!data.name) {
-                    alert("部署名を入力してください");
+                if (!data.name || !data.comment) {
+                    alert("部署名、またはコメントが未入力です");
                     return;
                 }
 
@@ -129,7 +160,6 @@
                 });
             });
         });
--->
     </script>
 </body>
 </html>
