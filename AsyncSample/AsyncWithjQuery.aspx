@@ -35,7 +35,8 @@
 
         <input id="listButton" type="button" value="一覧検索" />&nbsp;&nbsp;
         部署ID: <input type="text" id="departmentId"  style="width:50px;"/>
-        <input id="searchButton" type="button" value="ID検索"/><br />
+        <input id="searchButton" type="button" value="ID検索"/>&nbsp;&nbsp;
+        <input id="clearButton" type="button" value="一覧クリア"/><br />
         <table style="margin-top: 10px;">
             <colgroup>
                 <col width="100"/>
@@ -70,10 +71,19 @@
         $(function () {
             console.log("jQuery OK!");
             // キーワード補完されないのがつらい。CDNだとダメかな？
+            clearResult = function () {
+                 $("#result").text("");
+                 $("#result *").remove();
+            }
+
+            // 結果一覧クリア
+            $("#clearButton").click(function () {
+                clearResult();
+            });
 
             // 一覧検索
             $("#listButton").click(function () {
-
+                clearResult();
                 var dptId = $("#departmentId").val();
                 var apiUrl = "/api/Departments/"
                 console.log("AJAX通信開始");
@@ -87,9 +97,6 @@
                     dataType: "json",
                     // 結果をid=resultのdivタグに設定
                     success: function (data) {
-                        // divタグの中身をすべて消す
-                        $("#result *").remove();
-
                         // JSONデータの配列を処理
                         $(data).each(function () {
                             $("<p>" + this.DeptId + ":" + this.Name + ", " + this.Comment + "</p>").appendTo("#result");
@@ -101,6 +108,7 @@
 
             // ID指定検索処理
             $("#searchButton").click(function () {
+                clearResult();
 
                 var dptId = $("#departmentId").val();
                 var apiUrl = "/api/Departments/"
@@ -129,6 +137,7 @@
 
             // 登録処理
             $("#createButton").click(function () {
+                clearResult();
 
                 // 部署名データ作成
                 var data = {
