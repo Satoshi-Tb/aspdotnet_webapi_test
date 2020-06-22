@@ -220,10 +220,10 @@
             // 一覧検索
             $("#btnList2").click(function () {
                 clearResult();
-
+                var btnId = this.id
                 // 送信データ作成
                 var data = {
-                    "action": "show"
+                    "action": btnId
                 };
 
                 var dptId = $("#departmentId").val();
@@ -257,9 +257,11 @@
             $("#btnSearch2").click(function () {
                 clearResult();
 
-                                // 送信データ作成
+                var btnId = this.id
+
+                // 送信データ作成
                 var data = {
-                    "action": "show",
+                    "action": btnId,
                     "deptId": $("#departmentId2").val()
                 };
 
@@ -292,12 +294,13 @@
             // 登録処理
             $("#btnCreate2").click(function () {
                 clearResult();
+                var btnId = this.id
 
                 // 送信データ作成
                 var data = {
+                    "action": btnId,
                     "name": $("#departmentName2").val(),
-                    "comment": $("#comment2").val(),
-                    "action": "create"
+                    "comment": $("#comment2").val()
                 };
                 var apiUrl = "/WSByAspDotNetFormHandler.aspx"
                 console.log("AJAX通信開始");
@@ -316,10 +319,10 @@
                     url: apiUrl,
                     data: data,
                     success: function () {
-                        $("#result").text("保存完了");
+                        $("#result2").text("保存完了");
                     },
                     error: function () {
-                        $("#result").text("保存失敗");
+                        $("#result2").text("保存失敗");
                     }
                 });
             });

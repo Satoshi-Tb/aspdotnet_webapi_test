@@ -31,42 +31,14 @@ Public Class WSByAspDotNetFormHandler
                 Response.StatusCode = Net.HttpStatusCode.BadRequest
             Else
                 Select Case action
-                    Case "create"
-                        ' 手動でパラメータバインド
-                        Dim dpt As New Department() With {.Name = Request.Form("name"), .Comment = Request.Form("comment")}
+                    Case "btnCreate2"
+                        Create()
 
-                        Dim maxId = Departments.AsEnumerable().Select(Of Integer)(Function(d) d.DeptId).Max()
+                    Case "btnList2"
+                        Find()
 
-                        dpt.DeptId = maxId + 1
-
-                        Departments.Add(dpt)
-                        Response.StatusCode = Net.HttpStatusCode.OK
-
-                    Case "show"
-                        ' 一覧検索と、ID指定検索を同じ処理にすると見通しが悪い。（とりあえずのサンプル）
-                        Dim jss = New Script.Serialization.JavaScriptSerializer() 'Sharedで用意してもよいか
-                        Dim result As Object
-
-                        ' 検索条件取得
-                        Dim dptId As String = Me.Request.Form("deptId")
-
-
-                        If String.IsNullOrEmpty(dptId) Then
-                            '一覧検索
-                            result = Departments
-                        Else
-                            ' ID指定
-                            result = Departments.AsEnumerable().Where(Function(d) d.DeptId = dptId).SingleOrDefault()
-                        End If
-
-                        If result Is Nothing Then
-                            Response.StatusCode = Net.HttpStatusCode.NotFound
-                        Else
-                            Response.ContentType = "text/javascript"
-                            Response.Output.Write(jss.Serialize(result))  '  オブジェクトをJSON形式に変換
-                            Response.StatusCode = Net.HttpStatusCode.OK
-                        End If
-
+                    Case "btnSearch2"
+                        FindBy()
 
                     Case Else
                         Response.StatusCode = Net.HttpStatusCode.BadRequest
@@ -78,6 +50,62 @@ Public Class WSByAspDotNetFormHandler
         Finally
             Response.End()
         End Try
+
+    End Sub
+
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <returns></returns>
+    Private Function Find() As List(Of Department)
+        Dim jss = New Script.Serialization.JavaScriptSerializer()
+        Response.ContentType = "text/javascript"
+        Response.Output.Write(jss.Serialize(Departments))  '  オブジェクトをJSON形式に変換
+        Response.StatusCode = Net.HttpStatusCode.OK
+    End Function
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    Private Sub FindBy()
+
+        ' 検索条件取得
+        Dim dptId As String = Me.Request.Form("deptId")
+
+
+        If String.IsNullOrEmpty(dptId) Then
+            ' 通常ありえない
+            Response.StatusCode = Net.HttpStatusCode.BadRequest
+        Else
+            ' ID指定
+            Dim result = Departments.AsEnumerable().Where(Function(d) d.DeptId = dptId).SingleOrDefault()
+            If result Is Nothing Then
+                Response.StatusCode = Net.HttpStatusCode.NotFound
+            Else
+                Dim jss = New Script.Serialization.JavaScriptSerializer()
+                Response.ContentType = "text/javascript"
+                Response.Output.Write(jss.Serialize(result))  '  オブジェクトをJSON形式に変換
+                Response.StatusCode = Net.HttpStatusCode.OK
+            End If
+        End If
+
+
+    End Sub
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    Private Sub Create()
+        ' 手動でパラメータバインド
+        Dim dpt As New Department() With {.Name = Request.Form("name"), .Comment = Request.Form("comment")}
+
+        Dim maxId = Departments.AsEnumerable().Select(Of Integer)(Function(d) d.DeptId).Max()
+
+        dpt.DeptId = maxId + 1
+
+        Departments.Add(dpt)
+        Response.StatusCode = Net.HttpStatusCode.OK
     End Sub
 
 End Class
