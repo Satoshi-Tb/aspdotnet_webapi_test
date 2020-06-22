@@ -70,7 +70,7 @@
         <h2>◆ASP.NET WebFormハンドラサンプル</h2>
 
         <input id="btnList2" type="button" value="一覧検索" />&nbsp;&nbsp;
-        部署ID: <input type="text" id="dptId2"  style="width:50px;"/>
+        部署ID: <input type="text" id="departmentId2"  style="width:50px;"/>
         <input id="btnSearch2" type="button" value="ID検索"/>&nbsp;&nbsp;
         <input id="btnClear2" type="button" value="一覧クリア"  class="create_button"/><br />
         <table style="margin-top: 10px;">
@@ -92,7 +92,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" style="text-align: right;"><input id="createButton2" type="button" value="部署登録" /></td>
+                    <td colspan="2" style="text-align: right;"><input id="btnCreate2" type="button" value="部署登録" /></td>
                 </tr>
 
 
@@ -119,12 +119,17 @@
                 clearResult();
             });
 
+            // サービス起動
+            /*
+             * ASP.NET WebAPI版
+             */
+
             // 一覧検索
-            $("#listButton, #btnList2").click(function () {
+            $("#listButton").click(function () {
                 clearResult();
                 var dptId = $("#departmentId").val();
-                var apiUrl = (this.id == "listButton") ? "/api/Departments/" : "/WSByAspDotNetFormHandler.aspx"
-                var result_area = (this.id == "listButton") ? "result1" : "result2"
+                var apiUrl = "/api/Departments/"
+                var result_area = "result1"
                 console.log("AJAX通信開始");
                 console.log("url: " + apiUrl);
 
@@ -207,6 +212,120 @@
                     }
                 });
             });
+
+
+            /*
+             * ASP.NET WebForm版
+             */
+            // 一覧検索
+            $("#btnList2").click(function () {
+                clearResult();
+
+                // 送信データ作成
+                var data = {
+                    "action": "show"
+                };
+
+                var dptId = $("#departmentId").val();
+                var apiUrl = "/WSByAspDotNetFormHandler.aspx"
+                var result_area = "result2"
+                console.log("AJAX通信開始");
+                console.log("url: " + apiUrl);
+
+                // ajax通信開始
+                $.ajax({
+                    // メソッド指定：デフォルトはget
+                    type: "POST",
+                    // WebサービスURL
+                    url: apiUrl,
+                    data: data,
+                    // データ形式はJSON
+                    dataType: "json",
+                    // 結果をid=resultのdivタグに設定
+                    success: function (data) {
+                        // JSONデータの配列を処理
+                        $(data).each(function () {
+                            $("<p>" + this.DeptId + ":" + this.Name + ", " + this.Comment + "</p>").appendTo("#" + result_area);
+
+                        });
+                    }
+                });
+            });
+
+                     
+            // ID指定検索処理
+            $("#btnSearch2").click(function () {
+                clearResult();
+
+                                // 送信データ作成
+                var data = {
+                    "action": "show",
+                    "deptId": $("#departmentId2").val()
+                };
+
+                var apiUrl = "/WSByAspDotNetFormHandler.aspx"
+                console.log("AJAX通信開始");
+                console.log("departmentId: " + data.deptId);
+                console.log("url: " + apiUrl);
+
+                if (!data.deptId) {
+                    alert("部署IDを入力してください");
+                    return;
+                }
+
+                // ajax通信開始
+                $.ajax({
+                    type: "POST",
+                    // WebサービスURL
+                    url: apiUrl,
+                    data: data,
+                    // データ形式はJSON
+                    dataType: "json",
+                    // 結果をid=resultのdivタグに設定
+                    success: function (data) {
+                        // resultデータには、Nameプロパティが存在する前提
+                        $("#result2").text(data.DeptId + ":" + data.Name + "," + data.Comment)
+                    }
+                });
+            });
+
+            // 登録処理
+            $("#btnCreate2").click(function () {
+                clearResult();
+
+                // 送信データ作成
+                var data = {
+                    "name": $("#departmentName2").val(),
+                    "comment": $("#comment2").val(),
+                    "action": "create"
+                };
+                var apiUrl = "/WSByAspDotNetFormHandler.aspx"
+                console.log("AJAX通信開始");
+                console.log("送信データ: " + data);
+                console.log("url: " + apiUrl);
+
+                if (!data.name || !data.comment) {
+                    alert("部署名、またはコメントが未入力です");
+                    return;
+                }
+
+                // ajax通信開始
+                $.ajax({
+                    type: "POST",
+                    // WebサービスURL
+                    url: apiUrl,
+                    data: data,
+                    success: function () {
+                        $("#result").text("保存完了");
+                    },
+                    error: function () {
+                        $("#result").text("保存失敗");
+                    }
+                });
+            });
+
+
+
         });
     </script>
 </body>
