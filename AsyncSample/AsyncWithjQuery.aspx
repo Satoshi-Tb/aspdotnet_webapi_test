@@ -31,12 +31,12 @@
 
     <form id="form1" runat="server">
 
-        <h2>ASP.NET WebAPIサンプル</h2>
+        <h2>◆ASP.NET WebAPIサンプル</h2>
 
         <input id="listButton" type="button" value="一覧検索" />&nbsp;&nbsp;
         部署ID: <input type="text" id="departmentId"  style="width:50px;"/>
         <input id="searchButton" type="button" value="ID検索"/>&nbsp;&nbsp;
-        <input id="clearButton" type="button" value="一覧クリア"/><br />
+        <input id="clearButton" type="button" value="一覧クリア" class="create_button"/><br />
         <table style="margin-top: 10px;">
             <colgroup>
                 <col width="100"/>
@@ -56,7 +56,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" style="text-align: right;"><input id="createButton" type="button" value="部署登録" /></td>
+                    <td colspan="2" style="text-align: right;"><input id="createButton" type="button" value="部署登録"/></td>
                 </tr>
 
 
@@ -64,7 +64,43 @@
 
         </table>
         <hr />
-        <div id="result"></div>
+        <div id="result1" class="result_area"></div>
+
+
+        <h2>◆ASP.NET WebFormハンドラサンプル</h2>
+
+        <input id="btnList2" type="button" value="一覧検索" />&nbsp;&nbsp;
+        部署ID: <input type="text" id="dptId2"  style="width:50px;"/>
+        <input id="btnSearch2" type="button" value="ID検索"/>&nbsp;&nbsp;
+        <input id="btnClear2" type="button" value="一覧クリア"  class="create_button"/><br />
+        <table style="margin-top: 10px;">
+            <colgroup>
+                <col width="100"/>
+                <col width="200"/>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td>部署名</td>
+                    <td>
+                         <input type="text" id="departmentName2" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>コメント</td>
+                    <td>
+                         <input type="text" id="comment2" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: right;"><input id="createButton2" type="button" value="部署登録" /></td>
+                </tr>
+
+
+            </tbody>
+
+        </table>
+        <hr />
+        <div id="result2" class="result_area"></div>
 
     </form>
     <script type="text/javascript">
@@ -72,20 +108,23 @@
             console.log("jQuery OK!");
             // キーワード補完されないのがつらい。CDNだとダメかな？
             clearResult = function () {
-                 $("#result").text("");
-                 $("#result *").remove();
+                $(".result_area").each(function () {
+                    $(this).text("");
+                    $(this).empty();
+                });
             }
 
             // 結果一覧クリア
-            $("#clearButton").click(function () {
+            $(".create_button").click(function () {
                 clearResult();
             });
 
             // 一覧検索
-            $("#listButton").click(function () {
+            $("#listButton, #btnList2").click(function () {
                 clearResult();
                 var dptId = $("#departmentId").val();
-                var apiUrl = "/api/Departments/"
+                var apiUrl = (this.id == "listButton") ? "/api/Departments/" : "/WSByAspDotNetFormHandler.aspx"
+                var result_area = (this.id == "listButton") ? "result1" : "result2"
                 console.log("AJAX通信開始");
                 console.log("url: " + apiUrl);
 
@@ -99,7 +138,7 @@
                     success: function (data) {
                         // JSONデータの配列を処理
                         $(data).each(function () {
-                            $("<p>" + this.DeptId + ":" + this.Name + ", " + this.Comment + "</p>").appendTo("#result");
+                            $("<p>" + this.DeptId + ":" + this.Name + ", " + this.Comment + "</p>").appendTo("#" + result_area);
 
                         });
                     }
