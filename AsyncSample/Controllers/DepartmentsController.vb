@@ -1,7 +1,7 @@
 ﻿Imports System.Net
 Imports System.Web.Http
 Imports System.Web.Http.Description
-Imports AsyncSample.Models
+Imports AsyncSample.Dtos
 
 Namespace Controllers
     ' ■Controllerクラスの使用について
@@ -23,12 +23,7 @@ Namespace Controllers
     Public Class DepartmentsController
         Inherits ApiController
 
-        Private Shared Departments As New List(Of Department)(New Department() {
-            New Department() With {.DeptId = 1, .Name = "TSI1"},
-            New Department() With {.DeptId = 2, .Name = "TSI2"},
-            New Department() With {.DeptId = 3, .Name = "OSI1"},
-            New Department() With {.DeptId = 4, .Name = "OSI2"}
-        })
+        Private Shared Departments As List(Of Department) = Department.CreateData()
 
         ''' <summary>
         ''' GET: api/Departments

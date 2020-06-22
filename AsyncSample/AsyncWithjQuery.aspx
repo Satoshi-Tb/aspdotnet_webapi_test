@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </head>
 <body>
-    <h2>非同期通信テスト - UpdatePanel</h2>
+    <h2>非同期通信テスト</h2>
     <p>
         NOTE:<br />
         ・jQuery は、IE9以上に対応<br />

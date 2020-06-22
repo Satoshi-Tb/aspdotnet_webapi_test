@@ -109,6 +109,7 @@
     <Content Include="Web.config" />
     <Content Include="UpdatePanel.aspx" />
     <Content Include="AsyncWithjQuery.aspx" />
+    <Content Include="WSByAspDotNetFormHandler.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.vb" />
@@ -116,7 +117,7 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Department.vb" />
+    <Compile Include="Dtos\Department.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -148,6 +149,13 @@
     </Compile>
     <Compile Include="AsyncWithjQuery.aspx.vb">
       <DependentUpon>AsyncWithjQuery.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WSByAspDotNetFormHandler.aspx.designer.vb">
+      <DependentUpon>WSByAspDotNetFormHandler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WSByAspDotNetFormHandler.aspx.vb">
+      <DependentUpon>WSByAspDotNetFormHandler.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
