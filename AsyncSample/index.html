@@ -107,7 +107,8 @@
             <input id="btnList3" type="button" value="一覧検索" />&nbsp;&nbsp;
             部署ID: <input type="text" id="departmentId3" style="width:50px;" />
             <input id="btnSearch3" type="button" value="ID検索" />&nbsp;&nbsp;
-            <input id="btnClear3" type="button" value="一覧クリア" class="create_button" /><br />
+            <input id="btnClear3" type="button" value="一覧クリア" class="create_button" />&nbsp;&nbsp;
+            <a href="javascript:void(0)" id="linkPdf3">サンプルPDFファイル</a><br />
             <table style="margin-top: 10px;">
                 <colgroup>
                     <col width="100" />
@@ -493,6 +494,33 @@
                 });
             });
 
+            // PDFクリック
+            $("#linkPdf3").click(function (e) {
+
+
+                // 送信データ作成
+                var data = {
+                    "action": "btnCreate3",
+                    "name": "PDF表示テスト",
+                    "comment": new Date().toISOString()
+                };
+
+
+                //PDF表示
+                console.log("PDF表示")
+                // location命令前にエラー発生すると、location処理が実装されない。try-finallyするのもあり。
+                location.href = "/Contents/PDF/sample.pdf"
+
+                console.log("ajax通信開始")
+                // ajax通信開始
+                $.ajax({
+                    type: "POST",
+                    url: "/WSByGenHandler.ashx",
+                    data: data,
+                })
+
+                e.preventDefault();
+            });
         });
     </script>
 </body>

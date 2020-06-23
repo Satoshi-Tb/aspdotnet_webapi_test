@@ -1,5 +1,6 @@
 ﻿Imports System.Web
 Imports System.Web.Services
+Imports System.Net.Http
 Imports AsyncSample.Dtos
 
 
@@ -18,7 +19,15 @@ Public Class WSByGenHandler
         Dim req = context.Request
         Dim res = context.Response
 
+        ' POST以外の場合、終了
+        If Not req.HttpMethod.Equals(HttpMethod.Post.Method) Then
+            res.StatusCode = Net.HttpStatusCode.BadRequest
+            Return
+        End If
+
         ' パラメータによる操作チェック。
+        ' ボタン押下以外からのリクエストを考えると、IDタグよりも
+        ' 処理名称（create, searchなど）の方がベターと思える。
         Dim action As String = req.Form("action")
 
         Try
@@ -41,9 +50,7 @@ Public Class WSByGenHandler
             End If
 
         Catch ex As Exception
-            res.StatusCode = Net.HttpStatusCode.BadGateway
-        Finally
-            res.End()
+            res.StatusCode = Net.HttpStatusCode.InternalServerError
         End Try
 
     End Sub
