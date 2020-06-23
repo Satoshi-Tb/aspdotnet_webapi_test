@@ -1,7 +1,7 @@
 ﻿Imports System.Web
 Imports AsyncSample.Dtos
 
-Public Class WSByAspDotNetFormHandler
+Public Class WSByAspNetForm
     Inherits System.Web.UI.Page
 
     Private Shared Departments As List(Of Department) = Department.CreateData()

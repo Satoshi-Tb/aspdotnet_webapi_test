@@ -106,10 +106,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="index.html" />
     <Content Include="Web.config" />
     <Content Include="UpdatePanel.aspx" />
-    <Content Include="AsyncWithjQuery.aspx" />
-    <Content Include="WSByAspDotNetFormHandler.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.vb" />
@@ -144,18 +143,11 @@
       <DependentUpon>UpdatePanel.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="AsyncWithjQuery.aspx.designer.vb">
-      <DependentUpon>AsyncWithjQuery.aspx</DependentUpon>
+    <Compile Include="WSByAspNetForm.aspx.designer.vb">
+      <DependentUpon>WSByAspNetForm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AsyncWithjQuery.aspx.vb">
-      <DependentUpon>AsyncWithjQuery.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="WSByAspDotNetFormHandler.aspx.designer.vb">
-      <DependentUpon>WSByAspDotNetFormHandler.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WSByAspDotNetFormHandler.aspx.vb">
-      <DependentUpon>WSByAspDotNetFormHandler.aspx</DependentUpon>
+    <Compile Include="WSByAspNetForm.aspx.vb">
+      <DependentUpon>WSByAspNetForm.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="WSByGenHandler.ashx.vb">
@@ -187,6 +179,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="WSByAspNetForm.aspx" />
     <Content Include="WSByGenHandler.ashx" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="WSByAspDotNetFormHandler.aspx.vb" Inherits="AsyncSample.WSByAspDotNetFormHandler" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="WSByAspNetForm.aspx.vb" Inherits="AsyncSample.WSByAspNetForm" %>
 
 <!DOCTYPE html>
 

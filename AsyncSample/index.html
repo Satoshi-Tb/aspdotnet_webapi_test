@@ -1,10 +1,8 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="AsyncWithjQuery.aspx.vb" Inherits="AsyncSample.WebForm2" %>
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="ja">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Webサービスサンプル</title>
     <!-- 最新版でテストする -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -17,7 +15,7 @@
             ・jQuery は、IE9以上に対応<br />
             ・HTMLタグのIDに注意。jQuer含む、javascriptでは、HTMLタグのIDを指定して処理を記述する機会が多い。<br />
             ・サーバーコントロールの場合、タグのID属性はサーバーIDと呼ばれる値であり、<br />
-              &nbsp;&nbsp;これとは別にクライアントID（ClientID）が存在する。<br />
+            &nbsp;&nbsp;これとは別にクライアントID（ClientID）が存在する。<br />
             ・いわゆる、HTMLタグのIDに当たるものが、クライアントIDに該当する。<br />
             ・基本的に、サーバーID＝クライアントIDと考えてよいが、異なる値になる場合がある。<br />
             ・例えば、マスターページや、ユーザーコントロールなど、コントロールがネスト関係になる場合などである。<br />
@@ -25,7 +23,7 @@
             ・Repeaterコントロールを使用した場合、ItemTemplateのループ内で繰り返し生成されるサーバーコントロールも該当。<br />
             ・例えば、ClientIDModeプロパティにStaticを指定すれば、必ずクライアントID＝サーバーIDとなる。<br />
             ・なお、ClientIDを直接参照すれば、ClientIDModeの設定によらず、常に望む値が参照可能<br />
-              &nbsp;&nbsp;ただし参考書籍によるとあまり見た目が良くないので、お勧めしないとのこと<br />
+            &nbsp;&nbsp;ただし参考書籍によるとあまり見た目が良くないので、お勧めしないとのこと<br />
             ・WebAPIモジュールを使うと、比較的容易に構築できそう<br />
         </p>
     </section>
@@ -35,29 +33,29 @@
             <h2>◆ASP.NET WebAPIサンプル</h2>
 
             <input id="listButton" type="button" value="一覧検索" />&nbsp;&nbsp;
-            部署ID: <input type="text" id="departmentId"  style="width:50px;"/>
-            <input id="searchButton" type="button" value="ID検索"/>&nbsp;&nbsp;
-            <input id="clearButton" type="button" value="一覧クリア" class="create_button"/><br />
+            部署ID: <input type="text" id="departmentId" style="width:50px;" />
+            <input id="searchButton" type="button" value="ID検索" />&nbsp;&nbsp;
+            <input id="clearButton" type="button" value="一覧クリア" class="create_button" /><br />
             <table style="margin-top: 10px;">
                 <colgroup>
-                    <col width="100"/>
-                    <col width="200"/>
+                    <col width="100" />
+                    <col width="200" />
                 </colgroup>
                 <tbody>
                     <tr>
                         <td>部署名</td>
                         <td>
-                             <input type="text" id="departmentName" />
+                            <input type="text" id="departmentName" />
                         </td>
                     </tr>
                     <tr>
                         <td>コメント</td>
                         <td>
-                             <input type="text" id="comment" />
+                            <input type="text" id="comment" />
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2" style="text-align: right;"><input id="createButton" type="button" value="部署登録"/></td>
+                        <td colspan="2" style="text-align: right;"><input id="createButton" type="button" value="部署登録" /></td>
                     </tr>
 
 
@@ -71,25 +69,25 @@
         <section id="sectAspnetWebform">
             <h2>◆ASP.NET WebFormサンプル</h2>
             <input id="btnList2" type="button" value="一覧検索" />&nbsp;&nbsp;
-            部署ID: <input type="text" id="departmentId2"  style="width:50px;"/>
-            <input id="btnSearch2" type="button" value="ID検索"/>&nbsp;&nbsp;
-            <input id="btnClear2" type="button" value="一覧クリア"  class="create_button"/><br />
+            部署ID: <input type="text" id="departmentId2" style="width:50px;" />
+            <input id="btnSearch2" type="button" value="ID検索" />&nbsp;&nbsp;
+            <input id="btnClear2" type="button" value="一覧クリア" class="create_button" /><br />
             <table style="margin-top: 10px;">
                 <colgroup>
-                    <col width="100"/>
-                    <col width="200"/>
+                    <col width="100" />
+                    <col width="200" />
                 </colgroup>
                 <tbody>
                     <tr>
                         <td>部署名</td>
                         <td>
-                             <input type="text" id="departmentName2" />
+                            <input type="text" id="departmentName2" />
                         </td>
                     </tr>
                     <tr>
                         <td>コメント</td>
                         <td>
-                             <input type="text" id="comment2" />
+                            <input type="text" id="comment2" />
                         </td>
                     </tr>
                     <tr>
@@ -107,25 +105,25 @@
         <section id="sectGenHandler">
             <h2>◆ジェネリックハンドラサンプル</h2>
             <input id="btnList3" type="button" value="一覧検索" />&nbsp;&nbsp;
-            部署ID: <input type="text" id="departmentId3"  style="width:50px;"/>
-            <input id="btnSearch3" type="button" value="ID検索"/>&nbsp;&nbsp;
-            <input id="btnClear3" type="button" value="一覧クリア"  class="create_button"/><br />
+            部署ID: <input type="text" id="departmentId3" style="width:50px;" />
+            <input id="btnSearch3" type="button" value="ID検索" />&nbsp;&nbsp;
+            <input id="btnClear3" type="button" value="一覧クリア" class="create_button" /><br />
             <table style="margin-top: 10px;">
                 <colgroup>
-                    <col width="100"/>
-                    <col width="200"/>
+                    <col width="100" />
+                    <col width="200" />
                 </colgroup>
                 <tbody>
                     <tr>
                         <td>部署名</td>
                         <td>
-                             <input type="text" id="departmentName3" />
+                            <input type="text" id="departmentName3" />
                         </td>
                     </tr>
                     <tr>
                         <td>コメント</td>
                         <td>
-                             <input type="text" id="comment3" />
+                            <input type="text" id="comment3" />
                         </td>
                     </tr>
                     <tr>
@@ -165,7 +163,7 @@
              dataType: 受信データタイプ。送信データではない。
              type: HTTPメソッド。デフォルトはget。methodパラメータと同じ。
              data: 送信データ。key1=value1&key2=value2...形式、または{key1: 'value1', key2: 'value2'...}を指定。
-                   後者の場合、自動で前者の形式に変換して送信される。自動変換有無は、パラメータで制御可能。   
+                   後者の場合、自動で前者の形式に変換して送信される。自動変換有無は、パラメータで制御可能。
              contentType: デフォルトは以下の通り。
                 'application/x-www-form-urlencoded; charset=UTF-8'
                 通常これで事足りるが、異なる形式のデータ（plain text, xml, jsonなど）を送信したい場合は、適宜変更すること。
@@ -280,7 +278,7 @@
                 };
 
                 var dptId = $("#departmentId2").val();
-                var apiUrl = "/WSByAspDotNetFormHandler.aspx"
+                var apiUrl = "/WSByAspNetForm.aspx"
                 var result_area = "result2"
                 console.log("AJAX通信開始");
                 console.log("url: " + apiUrl);
@@ -305,7 +303,7 @@
                 });
             });
 
-                     
+
             // ID指定検索処理
             $("#btnSearch2").click(function () {
                 clearResult();
@@ -318,7 +316,7 @@
                     "deptId": $("#departmentId2").val()
                 };
 
-                var apiUrl = "/WSByAspDotNetFormHandler.aspx"
+                var apiUrl = "/WSByAspNetForm.aspx"
                 console.log("AJAX通信開始");
                 console.log("departmentId: " + data.deptId);
                 console.log("url: " + apiUrl);
@@ -355,7 +353,7 @@
                     "name": $("#departmentName2").val(),
                     "comment": $("#comment2").val()
                 };
-                var apiUrl = "/WSByAspDotNetFormHandler.aspx"
+                var apiUrl = "/WSByAspNetForm.aspx"
                 console.log("AJAX通信開始");
                 console.log("送信データ: " + data);
                 console.log("url: " + apiUrl);
@@ -420,7 +418,7 @@
                 });
             });
 
-                     
+
             // ID指定検索処理
             $("#btnSearch3").click(function () {
                 clearResult();
