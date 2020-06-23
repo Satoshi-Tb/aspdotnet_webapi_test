@@ -1,41 +1,41 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="ja">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Webã‚µãƒ¼ãƒ“ã‚¹ã‚µãƒ³ãƒ—ãƒ«</title>
-    <!-- æœ€æ–°ç‰ˆã§ãƒ†ã‚¹ãƒˆã™ã‚‹ -->
+    <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+    <title>WebƒT[ƒrƒXƒTƒ“ƒvƒ‹</title>
+    <!-- ÅV”Å‚ÅƒeƒXƒg‚·‚é -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </head>
 <body>
-    <h2>ASP.NET Webã‚µãƒ¼ãƒ“ã‚¹ï¼†éåŒæœŸé€šä¿¡ãƒ†ã‚¹ãƒˆ</h2>
+    <h2>ASP.NET WebƒT[ƒrƒX•”ñ“¯Šú’ÊMƒeƒXƒg</h2>
     <section id="note">
         <p>
             NOTE:<br />
-            ãƒ»jQuery ã¯ã€IE9ä»¥ä¸Šã«å¯¾å¿œ<br />
-            ãƒ»HTMLã‚¿ã‚°ã®IDã«æ³¨æ„ã€‚jQuerå«ã‚€ã€javascriptã§ã¯ã€HTMLã‚¿ã‚°ã®IDã‚’æŒ‡å®šã—ã¦å‡¦ç†ã‚’è¨˜è¿°ã™ã‚‹æ©Ÿä¼šãŒå¤šã„ã€‚<br />
-            ãƒ»ã‚µãƒ¼ãƒãƒ¼ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®å ´åˆã€ã‚¿ã‚°ã®IDå±æ€§ã¯ã‚µãƒ¼ãƒãƒ¼IDã¨å‘¼ã°ã‚Œã‚‹å€¤ã§ã‚ã‚Šã€<br />
-            &nbsp;&nbsp;ã“ã‚Œã¨ã¯åˆ¥ã«ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆIDï¼ˆClientIDï¼‰ãŒå­˜åœ¨ã™ã‚‹ã€‚<br />
-            ãƒ»ã„ã‚ã‚†ã‚‹ã€HTMLã‚¿ã‚°ã®IDã«å½“ãŸã‚‹ã‚‚ã®ãŒã€ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆIDã«è©²å½“ã™ã‚‹ã€‚<br />
-            ãƒ»åŸºæœ¬çš„ã«ã€ã‚µãƒ¼ãƒãƒ¼IDï¼ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆIDã¨è€ƒãˆã¦ã‚ˆã„ãŒã€ç•°ãªã‚‹å€¤ã«ãªã‚‹å ´åˆãŒã‚ã‚‹ã€‚<br />
-            ãƒ»ä¾‹ãˆã°ã€ãƒã‚¹ã‚¿ãƒ¼ãƒšãƒ¼ã‚¸ã‚„ã€ãƒ¦ãƒ¼ã‚¶ãƒ¼ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãªã©ã€ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãŒãƒã‚¹ãƒˆé–¢ä¿‚ã«ãªã‚‹å ´åˆãªã©ã§ã‚ã‚‹ã€‚<br />
-            ãƒ»IDå‘½åã®æ–¹æ³•ã‚’åˆ¶å¾¡ã™ã‚‹ãŸã‚ã«ã€ã‚µãƒ¼ãƒãƒ¼ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ã¯ã€ClientIDModeãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãŒå­˜åœ¨ã™ã‚‹ã€‚<br />
-            ãƒ»Repeaterã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚’ä½¿ç”¨ã—ãŸå ´åˆã€ItemTemplateã®ãƒ«ãƒ¼ãƒ—å†…ã§ç¹°ã‚Šè¿”ã—ç”Ÿæˆã•ã‚Œã‚‹ã‚µãƒ¼ãƒãƒ¼ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚‚è©²å½“ã€‚<br />
-            ãƒ»ä¾‹ãˆã°ã€ClientIDModeãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã«Staticã‚’æŒ‡å®šã™ã‚Œã°ã€å¿…ãšã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆIDï¼ã‚µãƒ¼ãƒãƒ¼IDã¨ãªã‚‹ã€‚<br />
-            ãƒ»ãªãŠã€ClientIDã‚’ç›´æ¥å‚ç…§ã™ã‚Œã°ã€ClientIDModeã®è¨­å®šã«ã‚ˆã‚‰ãšã€å¸¸ã«æœ›ã‚€å€¤ãŒå‚ç…§å¯èƒ½<br />
-            &nbsp;&nbsp;ãŸã ã—å‚è€ƒæ›¸ç±ã«ã‚ˆã‚‹ã¨ã‚ã¾ã‚Šè¦‹ãŸç›®ãŒè‰¯ããªã„ã®ã§ã€ãŠå‹§ã‚ã—ãªã„ã¨ã®ã“ã¨<br />
-            ãƒ»WebAPIãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã‚’ä½¿ã†ã¨ã€æ¯”è¼ƒçš„å®¹æ˜“ã«æ§‹ç¯‰ã§ããã†<br />
+            EjQuery ‚ÍAIE9ˆÈã‚É‘Î‰<br />
+            EHTMLƒ^ƒO‚ÌID‚É’ˆÓBjQuerŠÜ‚ŞAjavascript‚Å‚ÍAHTMLƒ^ƒO‚ÌID‚ğw’è‚µ‚Äˆ—‚ğ‹Lq‚·‚é‹@‰ï‚ª‘½‚¢B<br />
+            EƒT[ƒo[ƒRƒ“ƒgƒ[ƒ‹‚Ìê‡Aƒ^ƒO‚ÌID‘®«‚ÍƒT[ƒo[ID‚ÆŒÄ‚Î‚ê‚é’l‚Å‚ ‚èA<br />
+            &nbsp;&nbsp;‚±‚ê‚Æ‚Í•Ê‚ÉƒNƒ‰ƒCƒAƒ“ƒgIDiClientIDj‚ª‘¶İ‚·‚éB<br />
+            E‚¢‚í‚ä‚éAHTMLƒ^ƒO‚ÌID‚É“–‚½‚é‚à‚Ì‚ªAƒNƒ‰ƒCƒAƒ“ƒgID‚ÉŠY“–‚·‚éB<br />
+            EŠî–{“I‚ÉAƒT[ƒo[IDƒNƒ‰ƒCƒAƒ“ƒgID‚Æl‚¦‚Ä‚æ‚¢‚ªAˆÙ‚È‚é’l‚É‚È‚éê‡‚ª‚ ‚éB<br />
+            E—á‚¦‚ÎAƒ}ƒXƒ^[ƒy[ƒW‚âAƒ†[ƒU[ƒRƒ“ƒgƒ[ƒ‹‚È‚ÇAƒRƒ“ƒgƒ[ƒ‹‚ªƒlƒXƒgŠÖŒW‚É‚È‚éê‡‚È‚Ç‚Å‚ ‚éB<br />
+            EID–½–¼‚Ì•û–@‚ğ§Œä‚·‚é‚½‚ß‚ÉAƒT[ƒo[ƒRƒ“ƒgƒ[ƒ‹‚É‚ÍAClientIDModeƒvƒƒpƒeƒB‚ª‘¶İ‚·‚éB<br />
+            ERepeaterƒRƒ“ƒgƒ[ƒ‹‚ğg—p‚µ‚½ê‡AItemTemplate‚Ìƒ‹[ƒv“à‚ÅŒJ‚è•Ô‚µ¶¬‚³‚ê‚éƒT[ƒo[ƒRƒ“ƒgƒ[ƒ‹‚àŠY“–B<br />
+            E—á‚¦‚ÎAClientIDModeƒvƒƒpƒeƒB‚ÉStatic‚ğw’è‚·‚ê‚ÎA•K‚¸ƒNƒ‰ƒCƒAƒ“ƒgIDƒT[ƒo[ID‚Æ‚È‚éB<br />
+            E‚È‚¨AClientID‚ğ’¼ÚQÆ‚·‚ê‚ÎAClientIDMode‚Ìİ’è‚É‚æ‚ç‚¸Aí‚É–]‚Ş’l‚ªQÆ‰Â”\<br />
+            &nbsp;&nbsp;‚½‚¾‚µQl‘Ğ‚É‚æ‚é‚Æ‚ ‚Ü‚èŒ©‚½–Ú‚ª—Ç‚­‚È‚¢‚Ì‚ÅA‚¨Š©‚ß‚µ‚È‚¢‚Æ‚Ì‚±‚Æ<br />
+            EWebAPIƒ‚ƒWƒ…[ƒ‹‚ğg‚¤‚ÆA”äŠr“I—eˆÕ‚É\’z‚Å‚«‚»‚¤<br />
         </p>
     </section>
 
     <form id="form1" runat="server">
         <section id="sectAspnetWebapi">
-            <h2>â—†ASP.NET WebAPIã‚µãƒ³ãƒ—ãƒ«</h2>
+            <h2>ŸASP.NET WebAPIƒTƒ“ƒvƒ‹</h2>
 
-            <input id="listButton" type="button" value="ä¸€è¦§æ¤œç´¢" />&nbsp;&nbsp;
-            éƒ¨ç½²ID: <input type="text" id="departmentId" style="width:50px;" />
-            <input id="searchButton" type="button" value="IDæ¤œç´¢" />&nbsp;&nbsp;
-            <input id="clearButton" type="button" value="ä¸€è¦§ã‚¯ãƒªã‚¢" class="create_button" /><br />
+            <input id="listButton" type="button" value="ˆê——ŒŸõ" />&nbsp;&nbsp;
+            •”ID: <input type="text" id="departmentId" style="width:50px;" />
+            <input id="searchButton" type="button" value="IDŒŸõ" />&nbsp;&nbsp;
+            <input id="clearButton" type="button" value="ˆê——ƒNƒŠƒA" class="create_button" /><br />
             <table style="margin-top: 10px;">
                 <colgroup>
                     <col width="100" />
@@ -43,19 +43,19 @@
                 </colgroup>
                 <tbody>
                     <tr>
-                        <td>éƒ¨ç½²å</td>
+                        <td>•”–¼</td>
                         <td>
                             <input type="text" id="departmentName" />
                         </td>
                     </tr>
                     <tr>
-                        <td>ã‚³ãƒ¡ãƒ³ãƒˆ</td>
+                        <td>ƒRƒƒ“ƒg</td>
                         <td>
                             <input type="text" id="comment" />
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2" style="text-align: right;"><input id="createButton" type="button" value="éƒ¨ç½²ç™»éŒ²" /></td>
+                        <td colspan="2" style="text-align: right;"><input id="createButton" type="button" value="•”“o˜^" /></td>
                     </tr>
 
 
@@ -67,11 +67,11 @@
         </section>
 
         <section id="sectAspnetWebform">
-            <h2>â—†ASP.NET WebFormã‚µãƒ³ãƒ—ãƒ«</h2>
-            <input id="btnList2" type="button" value="ä¸€è¦§æ¤œç´¢" />&nbsp;&nbsp;
-            éƒ¨ç½²ID: <input type="text" id="departmentId2" style="width:50px;" />
-            <input id="btnSearch2" type="button" value="IDæ¤œç´¢" />&nbsp;&nbsp;
-            <input id="btnClear2" type="button" value="ä¸€è¦§ã‚¯ãƒªã‚¢" class="create_button" /><br />
+            <h2>ŸASP.NET WebFormƒTƒ“ƒvƒ‹</h2>
+            <input id="btnList2" type="button" value="ˆê——ŒŸõ" />&nbsp;&nbsp;
+            •”ID: <input type="text" id="departmentId2" style="width:50px;" />
+            <input id="btnSearch2" type="button" value="IDŒŸõ" />&nbsp;&nbsp;
+            <input id="btnClear2" type="button" value="ˆê——ƒNƒŠƒA" class="create_button" /><br />
             <table style="margin-top: 10px;">
                 <colgroup>
                     <col width="100" />
@@ -79,19 +79,19 @@
                 </colgroup>
                 <tbody>
                     <tr>
-                        <td>éƒ¨ç½²å</td>
+                        <td>•”–¼</td>
                         <td>
                             <input type="text" id="departmentName2" />
                         </td>
                     </tr>
                     <tr>
-                        <td>ã‚³ãƒ¡ãƒ³ãƒˆ</td>
+                        <td>ƒRƒƒ“ƒg</td>
                         <td>
                             <input type="text" id="comment2" />
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2" style="text-align: right;"><input id="btnCreate2" type="button" value="éƒ¨ç½²ç™»éŒ²" /></td>
+                        <td colspan="2" style="text-align: right;"><input id="btnCreate2" type="button" value="•”“o˜^" /></td>
                     </tr>
 
 
@@ -103,12 +103,12 @@
         </section>
 
         <section id="sectGenHandler">
-            <h2>â—†ã‚¸ã‚§ãƒãƒªãƒƒã‚¯ãƒãƒ³ãƒ‰ãƒ©ã‚µãƒ³ãƒ—ãƒ«</h2>
-            <input id="btnList3" type="button" value="ä¸€è¦§æ¤œç´¢" />&nbsp;&nbsp;
-            éƒ¨ç½²ID: <input type="text" id="departmentId3" style="width:50px;" />
-            <input id="btnSearch3" type="button" value="IDæ¤œç´¢" />&nbsp;&nbsp;
-            <input id="btnClear3" type="button" value="ä¸€è¦§ã‚¯ãƒªã‚¢" class="create_button" />&nbsp;&nbsp;
-            <a href="javascript:void(0)" id="linkPdf3">ã‚µãƒ³ãƒ—ãƒ«PDFãƒ•ã‚¡ã‚¤ãƒ«</a><br />
+            <h2>ŸƒWƒFƒlƒŠƒbƒNƒnƒ“ƒhƒ‰ƒTƒ“ƒvƒ‹</h2>
+            <input id="btnList3" type="button" value="ˆê——ŒŸõ" />&nbsp;&nbsp;
+            •”ID: <input type="text" id="departmentId3" style="width:50px;" />
+            <input id="btnSearch3" type="button" value="IDŒŸõ" />&nbsp;&nbsp;
+            <input id="btnClear3" type="button" value="ˆê——ƒNƒŠƒA" class="create_button" />&nbsp;&nbsp;
+            <a href="javascript:void(0)" id="linkPdf3">ƒTƒ“ƒvƒ‹PDFƒtƒ@ƒCƒ‹</a><br />
             <table style="margin-top: 10px;">
                 <colgroup>
                     <col width="100" />
@@ -116,19 +116,19 @@
                 </colgroup>
                 <tbody>
                     <tr>
-                        <td>éƒ¨ç½²å</td>
+                        <td>•”–¼</td>
                         <td>
                             <input type="text" id="departmentName3" />
                         </td>
                     </tr>
                     <tr>
-                        <td>ã‚³ãƒ¡ãƒ³ãƒˆ</td>
+                        <td>ƒRƒƒ“ƒg</td>
                         <td>
                             <input type="text" id="comment3" />
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2" style="text-align: right;"><input id="btnCreate3" type="button" value="éƒ¨ç½²ç™»éŒ²" /></td>
+                        <td colspan="2" style="text-align: right;"><input id="btnCreate3" type="button" value="•”“o˜^" /></td>
                     </tr>
 
 
@@ -144,7 +144,7 @@
     <script type="text/javascript">
         $(function () {
             console.log("jQuery OK!");
-            // ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰è£œå®Œã•ã‚Œãªã„ã®ãŒã¤ã‚‰ã„ã€‚CDNã ã¨ãƒ€ãƒ¡ã‹ãªï¼Ÿ
+            // ƒL[ƒ[ƒh•âŠ®‚³‚ê‚È‚¢‚Ì‚ª‚Â‚ç‚¢BCDN‚¾‚Æƒ_ƒ‚©‚ÈH
             clearResult = function () {
                 $(".result_area").each(function () {
                     $(this).text("");
@@ -152,48 +152,48 @@
                 });
             }
 
-            // çµæœä¸€è¦§ã‚¯ãƒªã‚¢
+            // Œ‹‰Êˆê——ƒNƒŠƒA
             $(".create_button").click(function () {
                 clearResult();
             });
 
 
             /*
-             jQuery.ajaxé–¢æ•°ãƒ¡ãƒ¢
-             ãƒ»é€ä¿¡ãƒ‡ãƒ¼ã‚¿ã¯ã€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ utf-8(W3Cæ¨™æº–)ã€‚shift_jisã‚’ä½¿ã†å ´åˆã€mimetypeã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã™ã‚‹å¿…è¦ã‚ã‚Šã€‚
-             dataType: å—ä¿¡ãƒ‡ãƒ¼ã‚¿ã‚¿ã‚¤ãƒ—ã€‚é€ä¿¡ãƒ‡ãƒ¼ã‚¿ã§ã¯ãªã„ã€‚
-             type: HTTPãƒ¡ã‚½ãƒƒãƒ‰ã€‚ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯getã€‚methodãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¨åŒã˜ã€‚
-             data: é€ä¿¡ãƒ‡ãƒ¼ã‚¿ã€‚key1=value1&key2=value2...å½¢å¼ã€ã¾ãŸã¯{key1: 'value1', key2: 'value2'...}ã‚’æŒ‡å®šã€‚
-                   å¾Œè€…ã®å ´åˆã€è‡ªå‹•ã§å‰è€…ã®å½¢å¼ã«å¤‰æ›ã—ã¦é€ä¿¡ã•ã‚Œã‚‹ã€‚è‡ªå‹•å¤‰æ›æœ‰ç„¡ã¯ã€ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã§åˆ¶å¾¡å¯èƒ½ã€‚
-             contentType: ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯ä»¥ä¸‹ã®é€šã‚Šã€‚
+             jQuery.ajaxŠÖ”ƒƒ‚
+             E‘—Mƒf[ƒ^‚ÍAƒfƒtƒHƒ‹ƒg‚Å‚Í utf-8(W3C•W€)Bshift_jis‚ğg‚¤ê‡Amimetype‚ğƒI[ƒo[ƒ‰ƒCƒh‚·‚é•K—v‚ ‚èB
+             dataType: óMƒf[ƒ^ƒ^ƒCƒvB‘—Mƒf[ƒ^‚Å‚Í‚È‚¢B
+             type: HTTPƒƒ\ƒbƒhBƒfƒtƒHƒ‹ƒg‚ÍgetBmethodƒpƒ‰ƒ[ƒ^‚Æ“¯‚¶B
+             data: ‘—Mƒf[ƒ^Bkey1=value1&key2=value2...Œ`®A‚Ü‚½‚Í{key1: 'value1', key2: 'value2'...}‚ğw’èB
+                   ŒãÒ‚Ìê‡A©“®‚Å‘OÒ‚ÌŒ`®‚É•ÏŠ·‚µ‚Ä‘—M‚³‚ê‚éB©“®•ÏŠ·—L–³‚ÍAƒpƒ‰ƒ[ƒ^‚Å§Œä‰Â”\B
+             contentType: ƒfƒtƒHƒ‹ƒg‚ÍˆÈ‰º‚Ì’Ê‚èB
                 'application/x-www-form-urlencoded; charset=UTF-8'
-                é€šå¸¸ã“ã‚Œã§äº‹è¶³ã‚Šã‚‹ãŒã€ç•°ãªã‚‹å½¢å¼ã®ãƒ‡ãƒ¼ã‚¿ï¼ˆplain text, xml, jsonãªã©ï¼‰ã‚’é€ä¿¡ã—ãŸã„å ´åˆã¯ã€é©å®œå¤‰æ›´ã™ã‚‹ã“ã¨ã€‚
-             beforeSend: é€ä¿¡å‰å‡¦ç†ã€‚shift_jiså¯¾å¿œã™ã‚‹å ´åˆã«ã‚‚åˆ©ç”¨ã™ã‚‹ã€‚
+                ’Êí‚±‚ê‚Å–‘«‚è‚é‚ªAˆÙ‚È‚éŒ`®‚Ìƒf[ƒ^iplain text, xml, json‚È‚Çj‚ğ‘—M‚µ‚½‚¢ê‡‚ÍA“K‹X•ÏX‚·‚é‚±‚ÆB
+             beforeSend: ‘—M‘Oˆ—Bshift_jis‘Î‰‚·‚éê‡‚É‚à—˜—p‚·‚éB
              */
 
-            // ã‚µãƒ¼ãƒ“ã‚¹èµ·å‹•
+            // ƒT[ƒrƒX‹N“®
             /*
-             * ASP.NET WebAPIç‰ˆ
+             * ASP.NET WebAPI”Å
              */
 
-            // ä¸€è¦§æ¤œç´¢
+            // ˆê——ŒŸõ
             $("#listButton").click(function () {
                 clearResult();
                 var dptId = $("#departmentId").val();
                 var apiUrl = "/api/Departments/"
                 var result_area = "result1"
-                console.log("AJAXé€šä¿¡é–‹å§‹");
+                console.log("AJAX’ÊMŠJn");
                 console.log("url: " + apiUrl);
 
-                // ajaxé€šä¿¡é–‹å§‹
+                // ajax’ÊMŠJn
                 $.ajax({
-                    // Webã‚µãƒ¼ãƒ“ã‚¹URL
+                    // WebƒT[ƒrƒXURL
                     url: apiUrl,
-                    // ãƒ‡ãƒ¼ã‚¿å½¢å¼ã¯JSON
+                    // ƒf[ƒ^Œ`®‚ÍJSON
                     dataType: "json",
-                    // çµæœã‚’id=resultã®divã‚¿ã‚°ã«è¨­å®š
+                    // Œ‹‰Ê‚ğid=result‚Ìdivƒ^ƒO‚Éİ’è
                     success: function (data) {
-                        // JSONãƒ‡ãƒ¼ã‚¿ã®é…åˆ—ã‚’å‡¦ç†
+                        // JSONƒf[ƒ^‚Ì”z—ñ‚ğˆ—
                         $(data).each(function () {
                             $("<p>" + this.DeptId + ":" + this.Name + ", " + this.Comment + "</p>").appendTo("#" + result_area);
 
@@ -202,78 +202,78 @@
                 });
             });
 
-            // IDæŒ‡å®šæ¤œç´¢å‡¦ç†
+            // IDw’èŒŸõˆ—
             $("#searchButton").click(function () {
                 clearResult();
 
                 var dptId = $("#departmentId").val();
                 var apiUrl = "/api/Departments/"
-                console.log("AJAXé€šä¿¡é–‹å§‹");
+                console.log("AJAX’ÊMŠJn");
                 console.log("departmentId: " + dptId);
                 console.log("url: " + apiUrl + dptId);
 
                 if (!dptId) {
-                    alert("éƒ¨ç½²IDã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
+                    alert("•”ID‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
                     return;
                 }
 
-                // ajaxé€šä¿¡é–‹å§‹
+                // ajax’ÊMŠJn
                 $.ajax({
-                    // Webã‚µãƒ¼ãƒ“ã‚¹URL
+                    // WebƒT[ƒrƒXURL
                     url: apiUrl + encodeURI(dptId),
-                    // ãƒ‡ãƒ¼ã‚¿å½¢å¼ã¯JSON
+                    // ƒf[ƒ^Œ`®‚ÍJSON
                     dataType: "json",
-                    // çµæœã‚’id=resultã®divã‚¿ã‚°ã«è¨­å®š
+                    // Œ‹‰Ê‚ğid=result‚Ìdivƒ^ƒO‚Éİ’è
                     success: function (data) {
-                        // resultãƒ‡ãƒ¼ã‚¿ã«ã¯ã€Nameãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãŒå­˜åœ¨ã™ã‚‹å‰æ
+                        // resultƒf[ƒ^‚É‚ÍANameƒvƒƒpƒeƒB‚ª‘¶İ‚·‚é‘O’ñ
                         $("#result").text(data.DeptId + ":" + data.Name + "," + data.Comment)
                     }
                 });
             });
 
-            // ç™»éŒ²å‡¦ç†
+            // “o˜^ˆ—
             $("#createButton").click(function () {
                 clearResult();
 
-                // éƒ¨ç½²åãƒ‡ãƒ¼ã‚¿ä½œæˆ
+                // •”–¼ƒf[ƒ^ì¬
                 var data = {
                     "name": $("#departmentName").val(),
                     "comment": $("#comment").val()
                 };
                 var apiUrl = "/api/Departments/"
-                console.log("AJAXé€šä¿¡é–‹å§‹");
-                console.log("é€ä¿¡ãƒ‡ãƒ¼ã‚¿: " + data);
+                console.log("AJAX’ÊMŠJn");
+                console.log("‘—Mƒf[ƒ^: " + data);
                 console.log("url: " + apiUrl);
 
                 if (!data.name || !data.comment) {
-                    alert("éƒ¨ç½²åã€ã¾ãŸã¯ã‚³ãƒ¡ãƒ³ãƒˆãŒæœªå…¥åŠ›ã§ã™");
+                    alert("•”–¼A‚Ü‚½‚ÍƒRƒƒ“ƒg‚ª–¢“ü—Í‚Å‚·");
                     return;
                 }
 
-                // ajaxé€šä¿¡é–‹å§‹
+                // ajax’ÊMŠJn
                 $.ajax({
                     type: "POST",
-                    // Webã‚µãƒ¼ãƒ“ã‚¹URL
+                    // WebƒT[ƒrƒXURL
                     url: apiUrl,
                     data: data,
                     success: function () {
-                        $("#result").text("ä¿å­˜å®Œäº†");
+                        $("#result").text("•Û‘¶Š®—¹");
                     },
                     error: function () {
-                        $("#result").text("ä¿å­˜å¤±æ•—");
+                        $("#result").text("•Û‘¶¸”s");
                     }
                 });
             });
 
 
             /*
-             * ASP.NET WebFormç‰ˆ
+             * ASP.NET WebForm”Å
              */
-            // ä¸€è¦§æ¤œç´¢
+            // ˆê——ŒŸõ
             $("#btnList2").click(function () {
                 clearResult();
                 var btnId = this.id
-                // é€ä¿¡ãƒ‡ãƒ¼ã‚¿ä½œæˆ
+                // ‘—Mƒf[ƒ^ì¬
                 var data = {
                     "action": btnId
                 };
@@ -281,21 +281,21 @@
                 var dptId = $("#departmentId2").val();
                 var apiUrl = "/WSByAspNetForm.aspx"
                 var result_area = "result2"
-                console.log("AJAXé€šä¿¡é–‹å§‹");
+                console.log("AJAX’ÊMŠJn");
                 console.log("url: " + apiUrl);
 
-                // ajaxé€šä¿¡é–‹å§‹
+                // ajax’ÊMŠJn
                 $.ajax({
-                    // ãƒ¡ã‚½ãƒƒãƒ‰æŒ‡å®šï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯get
+                    // ƒƒ\ƒbƒhw’èFƒfƒtƒHƒ‹ƒg‚Íget
                     type: "POST",
-                    // Webã‚µãƒ¼ãƒ“ã‚¹URL
+                    // WebƒT[ƒrƒXURL
                     url: apiUrl,
                     data: data,
-                    // ãƒ‡ãƒ¼ã‚¿å½¢å¼ã¯JSON
+                    // ƒf[ƒ^Œ`®‚ÍJSON
                     dataType: "json",
-                    // çµæœã‚’id=resultã®divã‚¿ã‚°ã«è¨­å®š
+                    // Œ‹‰Ê‚ğid=result‚Ìdivƒ^ƒO‚Éİ’è
                     success: function (data) {
-                        // JSONãƒ‡ãƒ¼ã‚¿ã®é…åˆ—ã‚’å‡¦ç†
+                        // JSONƒf[ƒ^‚Ì”z—ñ‚ğˆ—
                         $(data).each(function () {
                             $("<p>" + this.DeptId + ":" + this.Name + ", " + this.Comment + "</p>").appendTo("#" + result_area);
 
@@ -305,76 +305,76 @@
             });
 
 
-            // IDæŒ‡å®šæ¤œç´¢å‡¦ç†
+            // IDw’èŒŸõˆ—
             $("#btnSearch2").click(function () {
                 clearResult();
 
                 var btnId = this.id
 
-                // é€ä¿¡ãƒ‡ãƒ¼ã‚¿ä½œæˆ
+                // ‘—Mƒf[ƒ^ì¬
                 var data = {
                     "action": btnId,
                     "deptId": $("#departmentId2").val()
                 };
 
                 var apiUrl = "/WSByAspNetForm.aspx"
-                console.log("AJAXé€šä¿¡é–‹å§‹");
+                console.log("AJAX’ÊMŠJn");
                 console.log("departmentId: " + data.deptId);
                 console.log("url: " + apiUrl);
 
                 if (!data.deptId) {
-                    alert("éƒ¨ç½²IDã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
+                    alert("•”ID‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
                     return;
                 }
 
-                // ajaxé€šä¿¡é–‹å§‹
+                // ajax’ÊMŠJn
                 $.ajax({
                     type: "POST",
-                    // Webã‚µãƒ¼ãƒ“ã‚¹URL
+                    // WebƒT[ƒrƒXURL
                     url: apiUrl,
                     data: data,
-                    // ãƒ‡ãƒ¼ã‚¿å½¢å¼ã¯JSON
+                    // ƒf[ƒ^Œ`®‚ÍJSON
                     dataType: "json",
-                    // çµæœã‚’id=resultã®divã‚¿ã‚°ã«è¨­å®š
+                    // Œ‹‰Ê‚ğid=result‚Ìdivƒ^ƒO‚Éİ’è
                     success: function (data) {
-                        // resultãƒ‡ãƒ¼ã‚¿ã«ã¯ã€Nameãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãŒå­˜åœ¨ã™ã‚‹å‰æ
+                        // resultƒf[ƒ^‚É‚ÍANameƒvƒƒpƒeƒB‚ª‘¶İ‚·‚é‘O’ñ
                         $("#result2").text(data.DeptId + ":" + data.Name + "," + data.Comment)
                     }
                 });
             });
 
-            // ç™»éŒ²å‡¦ç†
+            // “o˜^ˆ—
             $("#btnCreate2").click(function () {
                 clearResult();
                 var btnId = this.id
 
-                // é€ä¿¡ãƒ‡ãƒ¼ã‚¿ä½œæˆ
+                // ‘—Mƒf[ƒ^ì¬
                 var data = {
                     "action": btnId,
                     "name": $("#departmentName2").val(),
                     "comment": $("#comment2").val()
                 };
                 var apiUrl = "/WSByAspNetForm.aspx"
-                console.log("AJAXé€šä¿¡é–‹å§‹");
-                console.log("é€ä¿¡ãƒ‡ãƒ¼ã‚¿: " + data);
+                console.log("AJAX’ÊMŠJn");
+                console.log("‘—Mƒf[ƒ^: " + data);
                 console.log("url: " + apiUrl);
 
                 if (!data.name || !data.comment) {
-                    alert("éƒ¨ç½²åã€ã¾ãŸã¯ã‚³ãƒ¡ãƒ³ãƒˆãŒæœªå…¥åŠ›ã§ã™");
+                    alert("•”–¼A‚Ü‚½‚ÍƒRƒƒ“ƒg‚ª–¢“ü—Í‚Å‚·");
                     return;
                 }
 
-                // ajaxé€šä¿¡é–‹å§‹
+                // ajax’ÊMŠJn
                 $.ajax({
                     type: "POST",
-                    // Webã‚µãƒ¼ãƒ“ã‚¹URL
+                    // WebƒT[ƒrƒXURL
                     url: apiUrl,
                     data: data,
                     success: function () {
-                        $("#result2").text("ä¿å­˜å®Œäº†");
+                        $("#result2").text("•Û‘¶Š®—¹");
                     },
                     error: function () {
-                        $("#result2").text("ä¿å­˜å¤±æ•—");
+                        $("#result2").text("•Û‘¶¸”s");
                     }
                 });
             });
@@ -382,13 +382,13 @@
 
 
             /*
-             * ã‚¸ã‚§ãƒãƒªãƒƒã‚¯ãƒãƒ³ãƒ‰ãƒ©ç‰ˆ
+             * ƒWƒFƒlƒŠƒbƒNƒnƒ“ƒhƒ‰”Å
              */
-            // ä¸€è¦§æ¤œç´¢
+            // ˆê——ŒŸõ
             $("#btnList3").click(function () {
                 clearResult();
                 var btnId = this.id
-                // é€ä¿¡ãƒ‡ãƒ¼ã‚¿ä½œæˆ
+                // ‘—Mƒf[ƒ^ì¬
                 var data = {
                     "action": btnId
                 };
@@ -396,21 +396,21 @@
                 var dptId = $("#departmentId3").val();
                 var apiUrl = "/WSByGenHandler.ashx"
                 var result_area = "result3"
-                console.log("AJAXé€šä¿¡é–‹å§‹");
+                console.log("AJAX’ÊMŠJn");
                 console.log("url: " + apiUrl);
 
-                // ajaxé€šä¿¡é–‹å§‹
+                // ajax’ÊMŠJn
                 $.ajax({
-                    // ãƒ¡ã‚½ãƒƒãƒ‰æŒ‡å®šï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯get
+                    // ƒƒ\ƒbƒhw’èFƒfƒtƒHƒ‹ƒg‚Íget
                     type: "POST",
-                    // Webã‚µãƒ¼ãƒ“ã‚¹URL
+                    // WebƒT[ƒrƒXURL
                     url: apiUrl,
                     data: data,
-                    // ãƒ‡ãƒ¼ã‚¿å½¢å¼ã¯JSON
+                    // ƒf[ƒ^Œ`®‚ÍJSON
                     dataType: "json",
-                    // çµæœã‚’id=resultã®divã‚¿ã‚°ã«è¨­å®š
+                    // Œ‹‰Ê‚ğid=result‚Ìdivƒ^ƒO‚Éİ’è
                     success: function (data) {
-                        // JSONãƒ‡ãƒ¼ã‚¿ã®é…åˆ—ã‚’å‡¦ç†
+                        // JSONƒf[ƒ^‚Ì”z—ñ‚ğˆ—
                         $(data).each(function () {
                             $("<p>" + this.DeptId + ":" + this.Name + ", " + this.Comment + "</p>").appendTo("#" + result_area);
 
@@ -420,99 +420,99 @@
             });
 
 
-            // IDæŒ‡å®šæ¤œç´¢å‡¦ç†
+            // IDw’èŒŸõˆ—
             $("#btnSearch3").click(function () {
                 clearResult();
 
                 var btnId = this.id
 
-                // é€ä¿¡ãƒ‡ãƒ¼ã‚¿ä½œæˆ
+                // ‘—Mƒf[ƒ^ì¬
                 var data = {
                     "action": btnId,
                     "deptId": $("#departmentId3").val()
                 };
 
                 var apiUrl = "/WSByGenHandler.ashx"
-                console.log("AJAXé€šä¿¡é–‹å§‹");
+                console.log("AJAX’ÊMŠJn");
                 console.log("departmentId: " + data.deptId);
                 console.log("url: " + apiUrl);
 
                 if (!data.deptId) {
-                    alert("éƒ¨ç½²IDã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
+                    alert("•”ID‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
                     return;
                 }
 
-                // ajaxé€šä¿¡é–‹å§‹
+                // ajax’ÊMŠJn
                 $.ajax({
                     type: "POST",
-                    // Webã‚µãƒ¼ãƒ“ã‚¹URL
+                    // WebƒT[ƒrƒXURL
                     url: apiUrl,
                     data: data,
-                    // ãƒ‡ãƒ¼ã‚¿å½¢å¼ã¯JSON
+                    // ƒf[ƒ^Œ`®‚ÍJSON
                     dataType: "json",
-                    // çµæœã‚’id=resultã®divã‚¿ã‚°ã«è¨­å®š
+                    // Œ‹‰Ê‚ğid=result‚Ìdivƒ^ƒO‚Éİ’è
                     success: function (data) {
-                        // resultãƒ‡ãƒ¼ã‚¿ã«ã¯ã€Nameãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãŒå­˜åœ¨ã™ã‚‹å‰æ
+                        // resultƒf[ƒ^‚É‚ÍANameƒvƒƒpƒeƒB‚ª‘¶İ‚·‚é‘O’ñ
                         $("#result3").text(data.DeptId + ":" + data.Name + "," + data.Comment)
                     }
                 });
             });
 
-            // ç™»éŒ²å‡¦ç†
+            // “o˜^ˆ—
             $("#btnCreate3").click(function () {
                 clearResult();
                 var btnId = this.id
 
-                // é€ä¿¡ãƒ‡ãƒ¼ã‚¿ä½œæˆ
+                // ‘—Mƒf[ƒ^ì¬
                 var data = {
                     "action": btnId,
                     "name": $("#departmentName3").val(),
                     "comment": $("#comment3").val()
                 };
                 var apiUrl = "/WSByGenHandler.ashx"
-                console.log("AJAXé€šä¿¡é–‹å§‹");
-                console.log("é€ä¿¡ãƒ‡ãƒ¼ã‚¿: " + data);
+                console.log("AJAX’ÊMŠJn");
+                console.log("‘—Mƒf[ƒ^: " + data);
                 console.log("url: " + apiUrl);
 
                 if (!data.name || !data.comment) {
-                    alert("éƒ¨ç½²åã€ã¾ãŸã¯ã‚³ãƒ¡ãƒ³ãƒˆãŒæœªå…¥åŠ›ã§ã™");
+                    alert("•”–¼A‚Ü‚½‚ÍƒRƒƒ“ƒg‚ª–¢“ü—Í‚Å‚·");
                     return;
                 }
 
-                // ajaxé€šä¿¡é–‹å§‹
+                // ajax’ÊMŠJn
                 $.ajax({
                     type: "POST",
-                    // Webã‚µãƒ¼ãƒ“ã‚¹URL
+                    // WebƒT[ƒrƒXURL
                     url: apiUrl,
                     data: data,
                 })
                 .done(function () {
-                    $("#result3").text("ä¿å­˜å®Œäº†");
+                    $("#result3").text("•Û‘¶Š®—¹");
                 })
                 .fail(function () {
-                    $("#result3").text("ä¿å­˜å¤±æ•—");
+                    $("#result3").text("•Û‘¶¸”s");
                 });
             });
 
-            // PDFã‚¯ãƒªãƒƒã‚¯
+            // PDFƒNƒŠƒbƒN
             $("#linkPdf3").click(function (e) {
 
 
-                // é€ä¿¡ãƒ‡ãƒ¼ã‚¿ä½œæˆ
+                // ‘—Mƒf[ƒ^ì¬
                 var data = {
                     "action": "btnCreate3",
-                    "name": "PDFè¡¨ç¤ºãƒ†ã‚¹ãƒˆ",
+                    "name": "PDF•\¦ƒeƒXƒg",
                     "comment": new Date().toISOString()
                 };
 
 
-                //PDFè¡¨ç¤º
-                console.log("PDFè¡¨ç¤º")
-                // locationå‘½ä»¤å‰ã«ã‚¨ãƒ©ãƒ¼ç™ºç”Ÿã™ã‚‹ã¨ã€locationå‡¦ç†ãŒå®Ÿè£…ã•ã‚Œãªã„ã€‚try-finallyã™ã‚‹ã®ã‚‚ã‚ã‚Šã€‚
+                //PDF•\¦
+                console.log("PDF•\¦")
+                // location–½—ß‘O‚ÉƒGƒ‰[”­¶‚·‚é‚ÆAlocationˆ—‚ªÀ‘•‚³‚ê‚È‚¢Btry-finally‚·‚é‚Ì‚à‚ ‚èB
                 location.href = "/Contents/PDF/sample.pdf"
 
-                console.log("ajaxé€šä¿¡é–‹å§‹")
-                // ajaxé€šä¿¡é–‹å§‹
+                console.log("ajax’ÊMŠJn")
+                // ajax’ÊMŠJn
                 $.ajax({
                     type: "POST",
                     url: "/WSByGenHandler.ashx",
