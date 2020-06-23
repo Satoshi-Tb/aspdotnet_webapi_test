@@ -23,7 +23,6 @@ Public Class WSByAspDotNetFormHandler
 
 
         ' パラメータによる操作チェック。
-        ' これはさすがに今一つに見える
         Dim action As String = Me.Request.Form("action")
 
         Try
@@ -57,13 +56,12 @@ Public Class WSByAspDotNetFormHandler
     ''' <summary>
     ''' 
     ''' </summary>
-    ''' <returns></returns>
-    Private Function Find() As List(Of Department)
+    Private Sub Find()
         Dim jss = New Script.Serialization.JavaScriptSerializer()
         Response.ContentType = "text/javascript"
         Response.Output.Write(jss.Serialize(Departments))  '  オブジェクトをJSON形式に変換
         Response.StatusCode = Net.HttpStatusCode.OK
-    End Function
+    End Sub
 
     ''' <summary>
     ''' 
