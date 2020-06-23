@@ -158,6 +158,20 @@
                 clearResult();
             });
 
+
+            /*
+             jQuery.ajax関数メモ
+             ・送信データは、デフォルトでは utf-8(W3C標準)。shift_jisを使う場合、mimetypeをオーバーライドする必要あり。
+             dataType: 受信データタイプ。送信データではない。
+             type: HTTPメソッド。デフォルトはget。methodパラメータと同じ。
+             data: 送信データ。key1=value1&key2=value2...形式、または{key1: 'value1', key2: 'value2'...}を指定。
+                   後者の場合、自動で前者の形式に変換して送信される。自動変換有無は、パラメータで制御可能。   
+             contentType: デフォルトは以下の通り。
+                'application/x-www-form-urlencoded; charset=UTF-8'
+                通常これで事足りるが、異なる形式のデータ（plain text, xml, jsonなど）を送信したい場合は、適宜変更すること。
+             beforeSend: 送信前処理。shift_jis対応する場合にも利用する。
+             */
+
             // サービス起動
             /*
              * ASP.NET WebAPI版
@@ -472,12 +486,12 @@
                     // WebサービスURL
                     url: apiUrl,
                     data: data,
-                    success: function () {
-                        $("#result3").text("保存完了");
-                    },
-                    error: function () {
-                        $("#result3").text("保存失敗");
-                    }
+                })
+                .done(function () {
+                    $("#result3").text("保存完了");
+                })
+                .fail(function () {
+                    $("#result3").text("保存失敗");
                 });
             });
 
