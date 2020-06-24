@@ -1,14 +1,19 @@
 ﻿Imports System.Web
 Imports System.Web.Services
+Imports System.Web.SessionState
 Imports System.Net.Http
 Imports AsyncSample.Dtos
 
 
 
 Public Class WSByGenHandler
-    Implements System.Web.IHttpHandler
+    Implements System.Web.IHttpHandler, IRequiresSessionState
+    ' sessionを利用したい場合は、IRequiresSessionStateをインプリメントする。
+    ' マーカインタフェースのため、個別実装追加は無し。
 
     Private Shared Departments As List(Of Department) = Department.CreateData()
+
+    Private Shared KEY_COUNTER As String = "COUNTER"
 
     ''' <summary>
     ''' ジェネリックハンドラによるWebサービス実装
@@ -18,12 +23,15 @@ Public Class WSByGenHandler
 
         Dim req = context.Request
         Dim res = context.Response
+        Dim session = context.Session
 
         ' POST以外の場合、終了
         If Not req.HttpMethod.Equals(HttpMethod.Post.Method) Then
             res.StatusCode = Net.HttpStatusCode.BadRequest
             Return
         End If
+
+
 
         ' パラメータによる操作チェック。
         ' ボタン押下以外からのリクエストを考えると、IDタグよりも
@@ -36,6 +44,12 @@ Public Class WSByGenHandler
             Else
                 Select Case action
                     Case "btnCreate3"
+                        ' セッション利用可能であれば、カウントアップ
+                        If Not session Is Nothing Then
+                            If session(KEY_COUNTER) Is Nothing Then session(KEY_COUNTER) = 0
+                            session(KEY_COUNTER) += 1
+                        End If
+
                         Create(context)
 
                     Case "btnList3"
@@ -119,6 +133,9 @@ Public Class WSByGenHandler
         Dim maxId = Departments.AsEnumerable().Select(Of Integer)(Function(d) d.DeptId).Max()
 
         dpt.DeptId = maxId + 1
+        If Not context.Session Is Nothing Then
+            dpt.Comment = $"{dpt.Comment}:{CStr(context.Session(KEY_COUNTER))}回目"
+        End If
 
         Departments.Add(dpt)
         res.StatusCode = Net.HttpStatusCode.OK
